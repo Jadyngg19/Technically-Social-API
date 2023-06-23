@@ -18,7 +18,7 @@ const thoughtController = {
       const thought = await Thought.create({ thoughtText, username });
       res.status(201).json(thought);
     } catch (error) {
-      res.status(500).json({ error: 'Failed to create thought.' });
+      res.status(500).json({ error: 'Failed to create a thought.' });
     }
   },
 
@@ -37,7 +37,7 @@ const thoughtController = {
       await thought.save();
       res.status(201).json(thought);
     } catch (error) {
-      res.status(500).json({ error: 'Failed to add comment.' });
+      res.status(500).json({ error: 'Failed to add a comment.' });
     }
   },
 
@@ -58,7 +58,7 @@ updateThought: async (req, res) => {
 
       res.json(thought);
     } catch (error) {
-      res.status(500).json({ error: 'Failed to update thought.' });
+      res.status(500).json({ error: 'Failed to update the thought.' });
     }
   },
 
@@ -74,7 +74,7 @@ updateThought: async (req, res) => {
 
       res.json({ message: 'Thought deleted successfully.' });
     } catch (error) {
-      res.status(500).json({ error: 'Failed to delete thought.' });
+      res.status(500).json({ error: 'Failed to delete the thought.' });
     }
   },
 };
