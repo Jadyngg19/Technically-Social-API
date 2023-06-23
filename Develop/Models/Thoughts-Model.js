@@ -1,4 +1,4 @@
-const {Schema, Model, Types} = require("mongoose");
+const {Schema, model, Types} = require("mongoose");
 const dateFormat = require("../Utils/Thought-Dates");
 
 const commentSchema = new Schema(
@@ -43,7 +43,7 @@ const thoughtSchema = new Schema(
             maxlength: 280,
         },
 
-        creattedAt: {
+        createdAt: {
             type: Date,
             default:  Date.now,
             get: (timestamp) => dateFormat(timestamp),
