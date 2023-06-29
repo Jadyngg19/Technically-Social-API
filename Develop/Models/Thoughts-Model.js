@@ -1,73 +1,66 @@
-const {Schema, model, Types} = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const dateFormat = require("../Utils/Thought-Dates");
 
 const reactionSchema = new Schema(
-    {
-        reactionId:{
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-
-        reactionBody: {
-            type: String,
-            required: true,
-            maxlength: 280,
-        },
-
-        username: {
-            type: String,
-            required: true,
-        },
-
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-        },
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
     },
-
-    {
-        toJSON: {
-            getters: true,
-        },
-        id: false,
-    }
+    reactionBody: {
+      type: String,
+      required: true,
+      maxlength: 280,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+    },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+    id: false,
+  }
 );
 
 const thoughtSchema = new Schema(
-    {
-        thoughtText: {
-            type: String,
-            required: "A Thought is Rrequired",
-            minlength: 1,
-            maxlength: 280,
-        },
-
-        createdAt: {
-            type: Date,
-            default:  Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-        },
-
-        username: {
-            type: String,
-            required: true,
-        },
-        reactions: [reactionSchema],
+  {
+    thoughtText: {
+      type: String,
+      required: "A Thought is Required",
+      minlength: 1,
+      maxlength: 280,
     },
-
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true,
-        },
-        id: false,
-    }
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    reactions: [reactionSchema],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+    id: false,
+  }
 );
 
-reactionSchema.virtual("reactionCount").get(function () {
-    return this.reactions ? this.reactions.length : 0;
-  });  
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
 
 const Thought = model("Thought", thoughtSchema);
 
