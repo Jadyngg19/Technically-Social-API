@@ -14,13 +14,13 @@ const userSchema = new Schema(
             unique: true,
             trim: true,
             required: "Your Email is Required",
-            match: [/.+@+\..+/],
+            match: [/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i]
         },
 
         thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "'Thought",
+                ref: "Thought",
             },
         ],
 
