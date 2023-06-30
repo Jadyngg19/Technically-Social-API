@@ -53,7 +53,11 @@ The Technically Social API provides the following features:
 * Reaction management: Add and delete reactions to thoughts.
 * Friend management: Add and remove friends from a user's friend list.
 
+- You can see all these features in action by watching my demonstration video [here](https://photos.app.goo.gl/FZTRvjBZqa1KHBg37)!
+
 ***By using the provided routes and appropriate HTTP methods, you can effectively interact with the API and perform the desired operations on users, thoughts, reactions, and friendships.***
+
+[Insomnia Overview](./Images/Insomnia.png)
 
 ## License
 
