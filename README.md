@@ -57,7 +57,7 @@ The Technically Social API provides the following features:
 
 ***By using the provided routes and appropriate HTTP methods, you can effectively interact with the API and perform the desired operations on users, thoughts, reactions, and friendships.***
 
-[Insomnia Overview](./Images/Insomnia.png)
+![Insomnia Overview](./Images/Insomnia.png)
 
 ## License
 
